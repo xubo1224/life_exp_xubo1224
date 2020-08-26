@@ -1,0 +1,20 @@
+---
+title: "class1"
+author: "Xubo Tang"
+date: "8/25/2020"
+output: html_document
+---
+
+```{r 1}
+library(tidyverse)
+library(gapminder)
+data(gapminder_unfiltered)
+view(gapminder_unfiltered)
+gapminder_unfiltered %>%
+  group_by(year) %>%
+  filter(lifeExp == max(lifeExp)) %>%
+  ungroup() %>%
+  select(year, country, lifeExp) %>%
+  arrange(year) -> sumdat
+sumdat
+```
